@@ -1,0 +1,61 @@
+body{
+  font-size: 13px;
+  font-family: arial;
+  background-color: black;
+  color: white;
+
+}
+.title{
+  font-size: 30px;
+  font-weight: bold;
+}
+.rock-emoji , .paper-emoji , .scissor-emoji{
+  width: 50px;
+  height: 50px;
+  
+} 
+.flex-start{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  display: inline-block;
+  
+
+}
+.rock-emoji-flex , .paper-emoji-flex , .scissor-emoji-flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rock-button, .paper-button , .scissor-button{
+  width: 120px;
+  height: 120px;
+  background-color: transparent;
+  border-color: rgb(255, 255, 255);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 100%;
+  margin-right: 12px;
+  margin-bottom: 30px;
+  cursor: pointer;
+
+}
+.reset-button, .auto-play-button{
+  padding: 8px 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.score-board{
+  font-size: 15px;
+}
+.js-result{
+  font-size: 24px;
+  
+  font-weight: 700;
+}
+.js-moves{
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+

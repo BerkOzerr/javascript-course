@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title class="js-title">App</title>
+</head>
+<body>
+<button class="js-start-button"
+onclick="buttonTextChange();">Start</button>
+<button class="js-start-loading-button" class="js-start-button"
+onclick="buttonTextChange1();">Start</button>
+<button class="js-Add-to-Cart-Button"
+onclick="textAdd();">Add to Cart</button>
+<button onclick="Add(true);">Add</button>
+<button onclick="Add(false);">Remove</button>
+<p class="js-message"></p>
+  <script>
+    let timeoutId; 
+    function textAdd(){
+      const message  = document.querySelector('.js-message');
+      message.innerHTML='Added';
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(function(){
+        message.innerHTML = '';
+      },2000);
+    }
+  let message = 0;
+  function Add(x){
+     
+    if (x) {
+        message++;
+    }else message--;
+    if(message<0){
+      message=0;
+    } 
+
+}
+    setInterval(function(){
+    if(document.title ==='App'){
+      document.title=`(${message}) messages`;
+    }else{
+      document.title='App';
+
+    }
+  },1000);
+  function updateButton() {
+        const button = document.querySelector('.js-button');
+        
+        button.innerHTML = 'Loading...';
+        setTimeout(function() {
+          button.innerHTML = 'Finished!';
+        }, 1000);}
+    function buttonTextChange(){
+      let buttonElement =  document.querySelector('.js-start-button').innerText;
+      console.log(buttonElement);
+      if (buttonElement ==='Start') {
+        setTimeout(function(){
+          document.querySelector('.js-start-button').innerText = 'Finished';
+        },1000);
+      }else{
+        setTimeout(function(){
+          document.querySelector('.js-start-button').innerText = 'Start';
+        },1000);
+      }
+    }
+    function buttonTextChange1(){
+      let buttonElement =  document.querySelector('.js-start-loading-button').innerText;
+      console.log(buttonElement);
+      if (buttonElement ==='Start') {
+        setTimeout(function(){
+          document.querySelector('.js-start-loading-button').innerText = 'Loading...';
+        },1000);
+        setTimeout(function(){
+          document.querySelector('.js-start-loading-button').innerText = 'Finished';
+        },2000);
+      }else{
+        setTimeout(function(){
+          document.querySelector('.js-start-loading-button').innerText = 'Start';
+        },1000);
+      }
+    }
+  </script>
+</body>
+</html>

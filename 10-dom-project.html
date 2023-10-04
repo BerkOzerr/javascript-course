@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Dom Project</title>
+  
+</head>
+
+<body>
+  <p>Youtube Subscribe Button</p>
+  <button onclick="
+  subscribe(); 
+  " 
+  class="js-subscribe-button">
+    Subscribe
+  </button>
+  <p>Amazon Shipping Calculator</p>
+  <input placeholder="Cost of Order" class="js-cost-input" 
+  onkeydown="
+    handleCostKeyDown(event);
+  "
+  >
+  <button onclick="
+  calculateTotal();
+  "
+  >Calculate</button>
+  <p class="js-output-wiew"></p>
+  <input type="text" class="js-name" placeholder="Name">
+  <button onclick="nameSelect();">Sumbit</button>
+  <p class="js-output2"></p>
+  <input type="text" class="js-hp"onkeyup="onkeydowntest(event)">
+  <p class="js-j"></p>
+  <script>
+    function nameSelect(){
+      const name =  document.querySelector('.js-name');
+     
+      document.querySelector('.js-output2').innerHTML = `Your name is : ${name.value}`;
+      
+    }
+    function onkeydowntest(event){
+      if (event.key !== null) {
+        let name= document.querySelector('.js-hp');
+        document.querySelector('.js-j').innerHTML = name.value  ;
+      }
+      
+      
+      
+      
+    }
+    function handleCostKeyDown(event){
+        if (event.key==='Enter') 
+        {
+          calculateTotal();
+        }
+    }
+    function calculateTotal(){
+       const inputElement  = document.querySelector('.js-cost-input');
+       let cost=Number(inputElement.value);
+       if (cost<40) {
+        cost+=10;
+       }
+     document.querySelector('.js-output-wiew').innerHTML = ` $${cost}`
+    }
+    function subscribe()
+    {
+            const buttunElement = document.querySelector('.js-subscribe-button');
+        if (buttunElement.innerText === 'Subscribe') 
+        {
+          buttunElement.innerHTML='Subscribed';
+        }else
+          {
+            buttunElement.innerHTML='Subscribe';
+          }
+    }
+
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

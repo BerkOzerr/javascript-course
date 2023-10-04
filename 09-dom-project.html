@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Dom Project</title>
+  <style>
+    body{
+      font-size: 20px;
+      font-family: arial;
+    }
+    
+    .title{
+      margin-top: 70px;
+    }
+   
+  </style>
+</head>
+
+<body>
+<p class="title1">YouTube Subscribe Button</p>
+  <button class="js-subscribe-button" onclick="subbutton();">Subscribe</button>
+<p class="title">Rock Paper Scissors</p>
+<a  href="http://127.0.0.1:5500/06-rock-paper-scissors.html">Click Here</a> 
+<p class="title">Amazon Shipping Calculator</p>
+<p>Orders under $40 = +$10 Shipping</p>
+<p>Orders over $40 = Free Shipping</p>
+<input  type="text" placeholder="Cost of order" onkeydown="handleCostInputKeydown(event)">
+<button class="js-calculate-button" onclick="calcbutton();">Calculate</button> 
+
+  <script>
+   
+   const Subscribebutton =  document.querySelector('.js-subscribe-button').innerHTML+'d';
+   
+   function subbutton()
+   {
+    if (document.querySelector('.js-subscribe-button').innerHTML ===Subscribebutton) {
+      document.querySelector('.js-subscribe-button').innerHTML ='Subscribe';
+    }else document.querySelector('.js-subscribe-button').innerHTML=Subscribebutton;
+    
+   }
+   function calcbutton(){
+    const variables = document.querySelector('input').innerHTML;
+    console.log(variables);
+   }
+   function handleCostInputKeydown(event)
+    {
+      const key = event.key;
+      if (key === 'Enter') 
+      {
+      calcbutton();
+      } else if (key === 'Escape') 
+        {
+        document.querySelector('.js-cost-input').value = '';
+        }
+    }
+  
+
+  </script>
+</body>
+</html>

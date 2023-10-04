@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise</title>
+    <style>
+      .div-1{
+        display: flex;
+        justify-content: space-between;
+      }
+      .main{
+        color: white;
+        border: none;
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        font-size: 30px;
+        font-family: sans-serif;
+        cursor: pointer;
+
+      }
+      .red-color{
+        background-color: red;
+        
+      }
+      .font{
+        color: black;
+      }
+      .green-color{
+        background-color: green;
+      }
+      .blue-color{
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div-1">
+      <button class="main red-color"
+      onclick="changeColor();"
+      >Red</button>
+      <button class="main green-color"
+      onclick="changeColor();"
+      >Green</button>
+      <button class="main blue-color"
+      onclick="changeColor();"
+      >Blue</button>
+    </div>
+   
+    <script>
+      let rndmColor1='';
+      let rndmColor2 ='';
+      let rndmColor3='';
+      function changeColor(){
+        randomColor();
+        const tempColor = document.querySelector(`.${rndmColor3}-color`);
+        const tempColor1 = document.querySelector(`.${rndmColor2}-color`);
+        const tempColor2 = document.querySelector(`.${rndmColor1}-color`);
+        if (true) {
+          tempColor.classList.remove(`${rndmColor3}-color`);
+          tempColor1.classList.remove(`${rndmColor1}-color`);
+          tempColor2.classList.remove(`${rndmColor3}-color`);
+         
+          tempColor.classList.add(`${rndmColor2}-color`);
+          tempColor1.classList.add(`${rndmColor2}-color`);
+          tempColor2.classList.add(`${rndmColor1}-color`)
+        }
+       
+
+
+    }
+ 
+  function randomColor(){
+    const rndmNmber = Math.floor(Math.random() * 99);
+    
+    if (rndmNmber <30) {
+      rndmColor1= 'red';
+      rndmColor2='green';
+      rndmColor3='blue';
+    }else if(rndmNmber<60){
+      rndmColor1='blue';
+      rndmColor2='red';
+      rndmColor3='green';
+    }else {rndmColor1='green'; rndmColor2='blue'; rndmColor3='red';} 
+  }
+
+    </script>
+  </body>
+</html>

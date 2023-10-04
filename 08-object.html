@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Object Practice</title>
+  
+</head>
+
+<body> 
+  <script>
+      //  let Product ={
+      //   name : 'Laptop',
+      //   price :2600 ,
+      //   ['yeni-ozellik'] : '1 da' ,
+      //   rating : { prop1 : 'prop1',
+      //     prop2 : 'prop2'
+      //   },
+      //   fun : function function1(){
+      //       console.log('function inside is object');
+      //   }
+       
+      //  };
+      //  console.log(Product);
+      //  console.log(Product.name);
+      //  Product.yeniozellik='Yeni';
+      //  console.log(Product);
+      //  delete Product.yeniozellik;
+      //  console.log(Product);
+      //  console.log(Product['yeni-ozellik']);
+      //  console.log(Product.rating.prop1);
+      //  Product.fun();
+      //  console.log(JSON.stringify(Product));
+      //  const jsonstring = JSON.stringify(Product);
+      //  console.log(JSON.parse(jsonstring)); 
+
+      console.log('hello'.length);
+      console.log('hello'.toUpperCase());
+      const object1 =
+      {
+        message : 'hello'
+      };
+      const object2 = object1; //referance copy
+      object1.message='goodj';
+      console.log(object1);
+      console.log(object2);
+      console.log(typeof object1);
+      console.log(typeof object1.message);
+      const object3 = {
+        message:'goodj'
+      };
+      const object4 = {
+        message:'goodj',
+        price: 3.44
+      };
+      
+      console.log(object1===object2);
+      console.log(object1.message ===object3.message);
+      const {message , price} = object4;
+      const object5 = {
+        message,
+        /*method : function function1(){
+          console.log('method');
+        }*/
+        method(){
+          console.log("method");
+        }
+      };
+      console.log(message,price);
+      console.log(object5);
+      object5.method();
+
+  </script>
+</body>
+</html>

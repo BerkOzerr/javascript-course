@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rock Paper Scissors</title>
+<style>
+  body{
+    font-size: 15px;
+    font-family: arial;
+    background-color: black;
+    color: white;
+
+  }
+  .title{
+    font-size: 35px;
+    font-weight: bold;
+  }
+  .rock-emoji , .paper-emoji , .scissor-emoji{
+    width: 60px;
+    height: 60px;
+    
+  } 
+  .flex-start{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    display: inline-block;
+    
+
+  }
+  .rock-emoji-flex , .paper-emoji-flex , .scissor-emoji-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .rock-button, .paper-button , .scissor-button{
+    width: 150px;
+    height: 150px;
+    background-color: black;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 100%;
+    margin-right: 15px;
+    margin-bottom: 50px;
+    cursor: pointer;
+
+  }
+  .reset-button{
+    padding: 8px 15px;
+    font-size: 20px;
+  }
+  .score-board{
+    font-size: 20px;
+  }
+  
+  
+</style>
+</head>
+
+<body>
+  <p class="title">
+    Rock Paper Scissors
+  </p>
+<div class="flex-start">
+      
+      <button 
+      class="rock-button"
+      onclick=" playGame('Rock');
+      " >
+      <div class="rock-emoji-flex"> <img class="rock-emoji" src="emoji/rock-emoji.png"> </div>
+       
+      </button>
+      <button 
+      class="paper-button"
+      onclick="playGame('Paper');
+      ">
+      <div class="paper-emoji-flex"><img class="paper-emoji" src="emoji/paper-emoji.png"></div>
+      </button>
+      <button 
+      class="scissor-button"
+      onclick="playGame('Scissor');
+      ">
+      <div class="scissor-emoji-flex"><img class="scissor-emoji" src="emoji/scissors-emoji.png"></div>
+      </button>
+      <p class="score-board">Wins: 0,Loses: 0 ,Ties: 0</p>
+     <button class="reset-button"
+     onclick="ResetScore();">Reset Score</button>
+</div>
+  <script>
+   
+    let playerMove ='';
+    let computerMover = '';
+    let computer=0;
+    let result = '';
+    let Score =JSON.parse(localStorage.getItem('score')) || 
+    {
+      win:0,
+      lose:0,
+      tie:0
+    };
+    /*
+    if (!Score) 
+    {
+      Score = {
+        win:0,
+        lose:0,
+        tie:0
+      }
+    }*/
+    function ComputerMove(){
+      computer = Math.floor(Math.random() * 3);
+      if (computer ===0) {
+        computerMover ='Rock';
+      }else if (computer ===1) {
+        computerMover='Paper';
+      }else{
+        computerMover='Scissors'; 
+      }
+    }
+   
+    function playGame(playerMove)
+    {
+      ComputerMove();
+      if(playerMove === 'Rock')
+      {
+              
+            if (computerMover ==='Rock') {
+              Score.tie++
+              result='You tie';
+            }else if (computerMover==='Paper') {
+              Score.lose++;
+              result='You lose';
+            }else{
+              Score.win++;
+              result='You win';
+            }
+            
+            alert(`Senin Seçimin  ${playerMove} Bilgisayarin Seçtiği ${computerMover} ${result}.\n Win : ${Score.win} Tie : ${Score.tie} Lose : ${Score.lose}`);
+            
+
+      }
+      if(playerMove==='Paper')
+      {
+              
+            if (computerMover ==='Rock') {
+              Score.win++
+              result='You win';
+            }else if (computerMover==='Paper') {
+              Score.tie++;
+              result='You tie';
+            }else{
+              Score.lose++;
+              result='You lose';
+            }
+            alert(`Senin Seçimin  ${playerMove} Bilgisayarin Seçtiği ${computerMover} ${result}.\n Win : ${Score.win} Tie : ${Score.tie} Lose : ${Score.lose}`);   
+      }
+      if (playerMove==='Scissor') 
+      {
+            
+          if (computerMover ==='Rock') {
+            Score.lose++
+            result='You lose';
+          }else if (computerMover==='Paper') {
+            Score.win++;
+            result='You win';
+          }else{
+            Score.tie++;
+            result='You tie';
+          }
+          alert(`Senin Seçimin  ${playerMove} Bilgisayarin Seçtiği ${computerMover} ${result}.\n Win : ${Score.win} Tie : ${Score.tie} Lose : ${Score.lose}`);
+      }
+      localStorage.setItem('score', JSON.stringify(Score));
+      ScoreBoard();
+    }
+    function ResetScore(){
+        Score.tie=0;
+         Score.win=0;
+         Score.lose=0;
+         localStorage.removeItem('score')
+        alert(`Win : ${Score.win} Tie : ${Score.tie} Lose : ${Score.lose} All Reset.`)
+        ScoreBoard();
+        
+    }
+    function ScoreBoard(){
+      document.querySelector('.score-board').innerHTML = `Win : ${Score.win} Tie : ${Score.tie} Lose : ${Score.lose}`
+    }
+ </script>
+</body>
+
+</html>
